@@ -2,7 +2,6 @@
 [![pub package](https://img.shields.io/pub/v/widget_book_view_lego.svg)](https://pub.dartlang.org/packages/widget_book_view_lego)
 
 # widget_book_view_lego
-description here
 
 ##  Installation
 1. If the lego project doesn't exist, please create new project by following [guide](https://lego.junestory.com/).
@@ -10,6 +9,3 @@ description here
  ```bash
  lego add widget_book_view_lego
  ```
-
-## Usage
-Usage here
