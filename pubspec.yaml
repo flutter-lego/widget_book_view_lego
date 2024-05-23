@@ -3,7 +3,7 @@ description: "Widget Book View powered by lego"
 #publish_to: 'none'
 repository: https://github.com/flutter-lego/widget_book_view_lego
 
-version: 1.0.0+1
+version: 1.0.1
 
 environment:
   sdk: '>=3.3.1 <4.0.0'

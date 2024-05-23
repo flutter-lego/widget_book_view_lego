@@ -90,7 +90,17 @@ class _NewViewState extends State<NewView> {
             // const VerticalDivider(thickness: 1, width: 1),
             Flexible(
               flex: 7,
-              child: (_loading) ? CupertinoActivityIndicator().center() : _buildContent(_switchMobileMode),
+              child: IndexedStack(
+                index: _loading ? 0 : 1,
+                children: <Widget>[
+                  DevicePreview(
+                    builder: (context) => CupertinoActivityIndicator().center(),
+                    backgroundColor: Colors.grey.withOpacity(0.1),
+                    isToolbarVisible: false,
+                  ),
+                  _buildContent(_switchMobileMode),
+                ],
+              ),
             ),
           ],
         ),
@@ -144,20 +154,20 @@ class _NewViewState extends State<NewView> {
   }
 
   _setSelectedIndex(int index) {
+    startLoading();
     setState(() {
       _selectedIndex = index;
     });
   }
 
-  startLoading(int index) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+  startLoading() {
+    if (!_switchMobileMode) return;
+    setState(() {
+      _loading = true;
+    });
+    Future.delayed(Duration(milliseconds: 100), () {
       setState(() {
-        _loading = true;
-      });
-      Future.delayed(Duration(milliseconds: 100), () {
-        setState(() {
-          _loading = false;
-        });
+        _loading = false;
       });
     });
   }
