@@ -54,36 +54,39 @@ class _NewViewState extends State<NewView> {
               flex: 4,
               child: Container(
                 color: Colors.black,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Gap(20),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.phone_iphone,
-                          color: Colors.white,
-                          size: 30,
-                        ),
-                        Gap(10),
-                        CupertinoSwitch(
-                          value: _switchMobileMode,
-                          onChanged: (bool value) {
-                            switchModeEvent(value);
-                          },
-                        ),
-                      ],
-                    ).padding(left: 20),
-                    Gap(20),
-                    Text("[User]'s\nWidget Book",
-                            style: TextStyle(color: Colors.white, fontSize: 35, fontWeight: FontWeight.bold))
-                        .padding(left: 20, right: 10),
-                    Gap(20),
-                    _buildTextButton('First', 0),
-                    _buildTextButton('Second', 1),
-                    _buildTextButton('Third', 2),
-                  ],
+                height: double.infinity,
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Gap(20),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.phone_iphone,
+                            color: Colors.white,
+                            size: 30,
+                          ),
+                          Gap(10),
+                          CupertinoSwitch(
+                            value: _switchMobileMode,
+                            onChanged: (bool value) {
+                              switchModeEvent(value);
+                            },
+                          ),
+                        ],
+                      ).padding(left: 20),
+                      Gap(20),
+                      Text("[User]'s\nWidget Book",
+                              style: TextStyle(color: Colors.white, fontSize: 35, fontWeight: FontWeight.bold))
+                          .padding(left: 20, right: 10),
+                      Gap(20),
+                      _buildTextButton('First', 0),
+                      _buildTextButton('Second', 1),
+                      _buildTextButton('Third', 2),
+                    ],
+                  ),
                 ),
               ),
             ),
